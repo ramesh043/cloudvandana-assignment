@@ -375,7 +375,151 @@ i:hover {
 
 ```
 
+# ToDo APP
 
+## HTML Code
+``` html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>ToDo App</h1>
+    <div class="container">
+      <div class="input-container">
+        <input type="text" id="inputText" placeholder="Enter a Task.." />
+
+        <button id="addButton" class="btn">Add Item</button>
+        <button id="clearAllBtn" class="btn">Clear All</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
+
+```
+## CSS Style File
+``` CSS Style file code
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 50px;
+}
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  padding: 5px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+input {
+  padding: 0.5rem 2rem 0.6rem 0;
+  width: 50%;
+}
+.btn {
+  background-color: rgb(52, 118, 241);
+  padding: 0.5rem 2rem 0.6rem 2rem;
+  font-weight: bold;
+}
+.input-container {
+  position: sticky;
+  top: 2px;
+}
+button {
+  color: white;
+
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  height: 50vh;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.remove-icon {
+  width: 20px;
+  height: 18px;
+  background: transparent;
+}
+
+```
+## JavaScript code 
+``` js code
+// inputText;
+// addButton;
+// clearAllBtn;
+// taskList;
+
+const inputTextEle = document.getElementById("inputText");
+
+const addBtn = document.getElementById("addButton");
+
+const clearAllButton = document.getElementById("clearAllBtn");
+
+const taskList = document.getElementById("taskList");
+
+function addTask() {
+  const taskTest = inputTextEle.value.trim();
+
+  if (taskTest === "") {
+    return;
+  }
+  //create new List item
+  const li = document.createElement("li");
+  li.textContent = taskTest;
+  // create a remove button
+  const remvButton = document.createElement("button");
+
+  const removeIcon = document.createElement("img");
+  removeIcon.src = "https://cdn-icons-png.flaticon.com/512/2984/2984959.png";
+  removeIcon.alt = "Remove";
+
+  removeIcon.classList.add("remove-icon");
+  remvButton.appendChild(removeIcon);
+  remvButton.onclick = function () {
+    taskList.removeChild(li);
+  };
+
+  li.appendChild(remvButton);
+  taskList.appendChild(li);
+
+  inputTextEle.value = "";
+}
+
+function clearAllTasks() {
+  taskList.innerHTML = "";
+}
+
+addBtn.addEventListener("click", addTask);
+clearAllButton.addEventListener("click", clearAllTasks);
+
+```
 
 
 
