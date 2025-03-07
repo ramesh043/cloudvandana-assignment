@@ -186,7 +186,194 @@ Output: true
  
 ```
 
+# Profile Card Using HTML and CSS
 
+### Description
+- This HTML code creates a Profile Card for a user, displaying their photo, name, job title, bio, and social media profiles. It uses external CSS for styling and Font Awesome icons for social media links.
+
+### Code Breakdown
+- The head section includes:
+- The document's character encoding (UTF-8).
+- A responsive viewport setting for mobile-friendly design.
+- External CSS files (styles.css).
+- Google Lato font for typography.
+- Font Awesome icons for social media links.
+- The body section contains:
+- A heading h2 for the profile card title
+- A section element wrapping the profile card
+- A class is card that represents the profile card.
+### Profile Card Content:
+- Profile Image : Displays Ramesh's photo.
+- Name : Displays "Ramesh Jangam".
+- Job Title : Displays "Full Stack Developer" in a blueviolet color.
+- Bio : A short introduction about Ramesh.
+- Social Media Links:
+- Displays Facebook, Twitter, LinkedIn, and GitHub icons with clickable links.
+### Styling
+- The card layout is structured using divs with class="card" for styling.
+- Flexbox is used for aligning social media icons.
+- Inline styles are used for specific elements margin-top, color, text-align, gap, etc..
+
+``` HTML
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h2 style="text-align: center; margin-top: 60px">Profile Card</h2>
+    <section>
+      <div class="card">
+        <div class="card-side card-front">
+          <div class="card-image">
+            <img src="./RameshPhoto.jpeg" alt="" class="profile-image" />
+          </div>
+          <div>
+            <h2>Ramesh Jangam</h2>
+            <h4 class="developer" style="color: blueviolet">
+              Full Stack Developer
+            </h4>
+            <p>
+              I am Ramesh, a passionate Full Stack Developer who loves writing
+              clean, efficient code and building impactful projects. I thrive in
+              collaborative environments, working with teams to create
+              innovative and scalable solutions.
+            </p>
+            <h3 style="text-align: center; color: blueviolet">Profiles</h3>
+            <div
+              class="social-profiles"
+              style="display: flex; justify-content: space-evenly; gap: 10"
+            >
+              <div style="display: flex; flex-direction: column; gap: 5px">
+                <a href="https://www.facebook.com"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <p>facebook</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 5px">
+                <a href="https://www.twitter.com"
+                  ><i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <p>Twitter</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 5px">
+                <a href="https://www.linkedin.com"
+                  ><i class="fa-brands fa-linkedin"></i>
+                </a>
+                <p>Linkedin</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 5px">
+                <a href="https://www.github.com"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <p>Github</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+```
+## CSS File
+``` css
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #f6f5f5, #c7d6f2, #c0c0f098);
+  background-color: whitesmoke;
+  overflow-y: hidden;
+  font-family: "Lato", sans-serif;
+  height: 100vh;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-bottom: 14px;
+}
+p {
+  color: #666;
+  font-size: 16px;
+  max-width: 350px;
+  margin: 10px auto;
+}
+.card {
+  max-width: 400px;
+  height: 500px;
+  padding: 30px;
+  position: relative;
+  /* talk later */
+
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  transition: all 0.3s ease-in;
+  animation: clipReveal 1.5s ease-in-out forwards;
+  clip-path: circle(0% at 50% 50%);
+  transition: transform 0.6s ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.profile-image {
+  width: 110px;
+
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 5px solid whitesmoke;
+}
+i {
+  font-size: 22px;
+  margin-top: 6px;
+  transition: all 0.3s ease-in;
+}
+
+i:hover {
+  transform: scale(1.4);
+}
+
+@keyframes clipReveal {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+  }
+  100% {
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+
+
+```
 
 
 
